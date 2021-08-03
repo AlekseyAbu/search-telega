@@ -4,7 +4,6 @@
       <input class="search__input" placeholder="Найти аккаунт" v-model="value" type="text" @input="searchAuthors()" @click="activeFieldSearch()"/>
       <div class="search__recent">
         <p class="recent">Недавнее</p>
-        <!-- <Authors v-for="author in authorsData" :key="author.id" v-bind:author="author"/> -->
         <div class="authors" v-for="author in authorsData" :key="author.id" v-bind:author="author">
           <div class="about">
             <img class="img" :src="author.img"/>
@@ -23,7 +22,6 @@
       </div>
       <div class="search__result">
         <p class="recent">Аккаунты</p>
-        <!-- <Authors v-for="author in authorsData" :key="author.id" v-bind:author="author"/> -->
         <div class="authors" v-for="author in authorsData" :key="author.id" v-bind:author="author">
           <div class="about">
             <img class="img" :src="author.img"/>
@@ -96,101 +94,102 @@ $ctw: white;
     flex-direction: row;
     align-items: center;
 }
+    .search {
+        margin: 15px auto 20px;
+        padding: 0 23px;
+        position: relative;
+        max-width: 554px;
+        width: calc(100% - 23 * 2px);
+        .search__input {
+            display: block;
+            width: 100%;
+            padding: 16px 0 16px 24px;
+            border: 1.5px solid rgba(0, 0, 0, 0.05);
+            box-sizing: border-box;
+            border-radius: 13px;
+        }
+        .search__recent {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            padding: 0 23px;
+            background: $ctw;
+        }
+        .search__result {
+            display: none;
+            max-width: 554px;
+            width: 100%;
+            height: 100vh;
+            padding: 0 23px;
+            background: $ctw;
+        }
+        .search__result-active {
+            display: flex;
+            flex-direction: column;
+        }
+        .recent {
+            font-family: SF Pro Display;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 16px;
+            color: #292941;
+            opacity: 0.5;
+            margin: 14px auto 20px 0;
+        }
+        .recent__end {
+            font-family: SF Pro Display;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 130%;
+            text-align: center;
+            color: #8a8ca9;
+            margin: 30px auto 130px;
+        }
+    }
 
-.search {
-  margin: 15px auto 20px;
-  padding: 0 23px;
-  position: relative;
-  max-width: 554px;
-  width: calc(100% - 23 * 2px);
-}
-.search__input {
-  display: block;
-  width: 100%;
-  padding: 16px 0 16px 24px;
-  border: 1.5px solid rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-  border-radius: 13px;
-}
-.search__recent {
-  display: none;
-  width: 100%;
-  height: 100vh;
-  padding: 0 23px;
-  background: $ctw;
-}
-.search__result {
-  display: none;
-  max-width: 554px;
-  width: 100%;
-  height: 100vh;
-  padding: 0 23px;
-  background: $ctw;
-}
-.search__result-active {
-  display: flex;
-  flex-direction: column;
-}
-.recent {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 16px;
-  color: #292941;
-  opacity: 0.5;
-  margin: 14px auto 20px 0;
-}
-.recent__end {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 130%;
-  text-align: center;
-  color: #8a8ca9;
-  margin: 30px auto 130px;
-}
-.authors {
-  width: calc(100% - 23 * 2px);
-  padding: 0 0 13px;
-  margin: 0 0 13px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-  @extend %DisFlexAICen;
-  justify-content: space-between;
-}
-.img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-.name__block {
-  @extend %DisFlexAICen;
-}
-.name {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 15px;
-  line-height: 18px;
-  color: #292941;
-  margin: 0 5px 4px 0;
-}
-.nickname {
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  color: #8a8ca9;
-  margin: 0;
-}
-.about {
-  @extend %DisFlexAICen;
-}
-.button {
-  border: none;
-  background: $ctw;
-}
+    .authors {
+        width: calc(100% - 23 * 2px);
+        padding: 0 0 13px;
+        margin: 0 0 13px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        @extend %DisFlexAICen;
+        justify-content: space-between;
+        .img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .name__block {
+            @extend %DisFlexAICen;
+        }
+        .name {
+            font-family: SF Pro Display;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 18px;
+            color: #292941;
+            margin: 0 5px 4px 0;
+        }
+        .nickname {
+            font-family: SF Pro Display;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            color: #8a8ca9;
+            margin: 0;
+        }
+        .about {
+            @extend %DisFlexAICen;
+        }
+        .button {
+            border: none;
+            background: $ctw;
+        }
+    }
+
 </style>

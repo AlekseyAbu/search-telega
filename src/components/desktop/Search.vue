@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
     .block__title{
         font-family: SF Pro Display;
         font-style: normal;

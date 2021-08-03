@@ -1,26 +1,18 @@
  <template>
-  <body>
-    <!-- <SearchMobile />
-    <BlockSubject v-for="block in visibleList" :key="block.id" v-bind:block="block"/> -->
-    <search-mobile v-if="false" v-bind:visibleList="visibleList"></search-mobile>
-    <search-decktop v-else v-bind:visibleList="visibleList"></search-decktop>
-  </body>
+    <div>
+        <search-mobile v-if="false" v-bind:visibleList="visibleList"></search-mobile>
+        <search-decktop v-else v-bind:visibleList="visibleList"></search-decktop>
+    </div>
 </template>
 
 <script>
-// import SearchMobile from '../components/SearchMobile.vue'
-// import Navigation from '../components/Navigation.vue'
 import CardData from '../data/blocks.json'
-// import BlockSubject from '../components/BlockSubject.vue'
 import SearchMobile from '../components/mobile/Search.vue'
 import SearchDecktop from '../components/desktop/Search.vue'
 
 export default {
     name: 'Home',
     components: {
-        // SearchMobile,
-        // Navigation,
-        // BlockSubject,
         SearchMobile,
         SearchDecktop
     },

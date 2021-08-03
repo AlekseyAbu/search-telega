@@ -2,7 +2,7 @@
   <section class="friends">
     <div class="block">
       <div class="header">
-       <router-link class="title" :to="{path: `/search/${block.url}}`}">{{block.title}}</router-link>
+       <router-link class="title" :to="{path: `/search/${block.url}`}">{{block.title}}</router-link>
         <p class="counter">{{block.counter}}</p>
       </div>
       <div class="content">
@@ -31,24 +31,27 @@ import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/css/swiper.min.css";
 
 export default {
-  props:["block"],
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  data() {
-    return {
-      cards: data,
-      pages: ['most-friends', 'most-profitable', 'popular-paid', 'most-friends-day', 'most-friends-week']
-    };
-  }
+	props:["block"],
+	components: {
+		Swiper,
+		SwiperSlide,
+	},
+	data() {
+		return {
+		cards: data,
+		pages: ['most-friends', 'most-profitable', 'popular-paid', 'most-friends-day', 'most-friends-week']
+		};
+	},
+	methods: {
+
+	}
 };
 </script>
 
 <style>
-.swiper-container{
-    width: 100%;
-}
+	.swiper-container{
+		width: 100%;
+	}
 </style>
 
 <style lang="scss" scoped>
@@ -65,96 +68,107 @@ export default {
     .friends{
         margin: 0 auto 20px;
     }
-     .header{
+
+
+    .header{
         margin: 0 23px 20px;
         @extend %disFlexSB;
+
+		.title{
+			font-family: $ff;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 18px;
+			color: $ct;
+			margin: 0;
+			text-decoration: none;
+		}
+		.counter{
+			font-family: $ff;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 17px;
+			text-align: right;
+			color: $ct;
+			opacity: 0.5;
+			margin: 0;
+		}
     }
-    .title{
-        font-family: $ff;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 18px;
-        color: $ct;
-        margin: 0;
-        text-decoration: none;
-    }
-    .counter{
-        font-family: $ff;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 17px;
-        text-align: right;
-        color: $ct;
-        opacity: 0.5;
-        margin: 0;
-    }
+
     .content{
         max-width: 100%;
         @extend %disFlexSB;
         overflow: hidden;
+		.video__content{
+			position: relative; 
+			display: flex;
+			margin-right: 1.5px; 
+			width: calc(20% - 1.5px);
+			height: 133px;
+			position: relative;
+			overflow: hidden;
+
+			.video__img{
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				object-fit: cover;
+				background-repeat: no-repeat; 
+			}
+		.content__counter{
+			position: absolute;
+			bottom: 7px;
+			left: 7px;
+			display: flex;
+			align-items: center;
+
+			.video__counter{
+				color: #fff;
+				font-family: SF Pro Display;
+				font-style: normal;
+				font-weight: 500;
+				font-size: 10px;
+				line-height: 12px;
+				margin: 0;
+				margin-left: 4.6px;
+			}
+		}
+		.video__paid{
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			width: 100%;
+			height: 100%;
+			display: none;
+			top: 0;
+			left: 0;
+			justify-content: center;
+			align-items: center;
+
+			.video__paid-img{
+				border: 3.5px solid #FFFFFF;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+			}
+		}
+		}
+		.video__content:nth-last-of-type{
+			margin-right: 0; 
+		}
+		
     }
+
     .swiper-slide-active{
-      display: flex;
+      	display: flex;
     }
-	 .video__content{
-        position: relative; 
-        display: flex;
-        margin-right: 1.5px; 
-        width: calc(20% - 1.5px);
-        height: 133px;
-        position: relative;
-        overflow: hidden;
-    }
-    .video__content:nth-last-of-type{
-        margin-right: 0; 
-    }
-    .video__img{
-        max-width: 100%;
-        height: 100%;
-        background-size: cover;
-        object-fit: cover;
-        background-repeat: no-repeat; 
-    }
-    .content__counter{
-        position: absolute;
-        bottom: 7px;
-        left: 7px;
-        display: flex;
-        align-items: center;
-    }
-    .video__counter{
-        color: #fff;
-        font-family: SF Pro Display;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 10px;
-        line-height: 12px;
-        margin: 0;
-        margin-left: 4.6px;
-    }
-    .video__paid{
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        width: 100%;
-        height: 100%;
-        display: none;
-        top: 0;
-        left: 0;
-        justify-content: center;
-        align-items: center;
-    }
-    .video__paid-img{
-        border: 3.5px solid #FFFFFF;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
+	
     .active{
         display: flex;
         position: absolute;
     }
+
 	@media screen and (min-width: 940px) {
 		.friends{
 			margin: 0 auto;
@@ -200,61 +214,63 @@ export default {
 			width: 100%;
 			overflow: hidden;
             @extend %disFlexSB;
+			.video__content{
+				position: relative; 
+				display: flex;
+				margin-right: 2px; 
+				max-width: 150;
+				width: calc(20% - 2px);
+				height: 296px;
+				position: relative;
+				overflow: hidden;
+			}
+			.video__img{
+				max-width: 100%;
+				height: 100%;
+				background-size: cover;
+				object-fit: cover;
+				background-repeat: no-repeat; 
+			}
+			.video__content:nth-last-of-type{
+				margin-right: 0; 
+			}
+			.content__counter{
+				display: none;
+				bottom: 20px;
+				left: 20px;
+				display: flex;
+				align-items: center;
+				
+				.video__counter{
+					color: #fff;
+					font-family: SF Pro Display;
+					font-style: normal;
+					font-weight: 500;
+					font-size: 16px;
+					line-height: 19px;
+					margin: 0;
+					margin-left: 4.6px;
+				}
+			}
+			.video__paid{
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				width: 100%;
+				height: 100%;
+				display: none;
+				top: 0;
+				left: 0;
+				justify-content: center;
+				align-items: center;
+				.video__paid-img{
+					border: 3.5px solid #FFFFFF;
+					width: 69px;
+					height: 69px;
+					border-radius: 50%;
+				}
+			}
 		}
-		 .video__content{
-			position: relative; 
-			display: flex;
-			margin-right: 2px; 
-			max-width: 150;
-			width: calc(20% - 2px);
-			height: 296px;
-			position: relative;
-			overflow: hidden;
-		}
-		.video__img{
-			max-width: 100%;
-			height: 100%;
-			background-size: cover;
-			object-fit: cover;
-			background-repeat: no-repeat; 
-		}
-		.video__content:nth-last-of-type{
-			margin-right: 0; 
-		}
-		.content__counter{
-			display: none;
-			bottom: 20px;
-			left: 20px;
-			display: flex;
-			align-items: center;
-		}
-		.video__counter{
-			color: #fff;
-			font-family: SF Pro Display;
-			font-style: normal;
-			font-weight: 500;
-			font-size: 16px;
-			line-height: 19px;
-			margin: 0;
-			margin-left: 4.6px;
-		}
-		.video__paid{
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-			width: 100%;
-			height: 100%;
-			display: none;
-			top: 0;
-			left: 0;
-			justify-content: center;
-			align-items: center;
-		}
-		.video__paid-img{
-			border: 3.5px solid #FFFFFF;
-			width: 69px;
-			height: 69px;
-			border-radius: 50%;
-		}
+		
 		.active{
 			display: flex;
 			position: absolute;

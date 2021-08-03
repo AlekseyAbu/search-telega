@@ -22,63 +22,64 @@
   </footer>
 </template>
 
-<style scoped>
+<style lang='scss' scoped>
 .footer{
     max-width: 940px;
     background: #fff;
     padding: 0;
     margin: 0 auto;
-}
-.footer__ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style:none;
-    margin: 0 auto;
-}
-.footer__li{
-    font-family: SF Pro Display;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    font-feature-settings: 'liga' off;
-    color: #292941;
-    opacity: 0.5;
-    margin-right: 25px;
-    text-decoration: none;
-}
-.footer__li:last-child{
-    margin-right: 0;
-}
-.footer__info{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style:none;
-    margin: 18px auto;
-}
-.language__select{
-    font-family: SF Pro Display;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
-    font-feature-settings: 'liga' off;
-    color: #292941;
-    opacity: 0.5;
-    margin-left: 60px;
-}
-.footer__select{
-    border: none;
-    background: #fff;
-    color: #292941;
-    opacity: 0.5;
-}
-.footer__option{
-    color: #292941;
-    opacity: 0.5;
+    .footer__ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style:none;
+        margin: 0 auto;
+
+        .footer__li{
+            font-family: SF Pro Display;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            font-feature-settings: 'liga' off;
+            color: #292941;
+            opacity: 0.5;
+            margin-right: 25px;
+            text-decoration: none;
+        }
+        .footer__li:last-child{
+            margin-right: 0;
+        }
+    }
+    .footer__info{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style:none;
+        margin: 18px auto;
+        .language__select{
+            font-family: SF Pro Display;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 17px;
+            font-feature-settings: 'liga' off;
+            color: #292941;
+            opacity: 0.5;
+            margin-left: 60px;
+        }
+        .footer__select{
+            border: none;
+            background: #fff;
+            color: #292941;
+            opacity: 0.5;
+        }
+        .footer__option{
+            color: #292941;
+            opacity: 0.5;
+        }
+    }
 }
 </style>
